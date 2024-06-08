@@ -406,8 +406,3 @@ ASALocalRun/
 
 # plugins outputs
 ConfigurationManagement/ConfigurationManagerPlugins/**/*
-
-#config files
-ConfigurationManagement/FileConfig.json
-
-ConfigurationManagement/MyConfigs.config
