@@ -47,7 +47,7 @@ namespace ConfigurationManagement
                 Setting2 = 9,
                 Setting3 = 5,
                 Setting4 = 6,
-                Setting5 = 10, //will not load since the ""SettingName" parameter is set to null
+                Setting5 = 10, //will not save since the "SettingName" parameter is set to null
             };
             savingExampleWithAllPropertiesUsingFileConfigProvider.SaveSettings();
 
@@ -57,7 +57,7 @@ namespace ConfigurationManagement
                 Setting2 = 9,
                 Setting3 = 5,
                 Setting4 = 6,
-                Setting5 = 10, //will not load since the ""SettingName" parameter is set to null
+                Setting5 = 10, //will not save since the "SettingName" parameter is set to null
             };
             savingExampleWithAllPropertiesUsingConfigurationManagerConfigProvider.SaveSettings();
 
@@ -71,7 +71,7 @@ namespace ConfigurationManagement
                 Setting2 = 9,
                 Setting3 = 5,
                 Setting4 = 6,
-                Setting5 = 10, //will not load since the ""SettingName" parameter is set to null
+                Setting5 = 10, //will not save since the "SettingName" parameter is set to null
             };
             savingExampleWithPropertiesUsingMixedConfigProviders.SaveSettings();
 

@@ -403,3 +403,11 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# plugins outputs
+ConfigurationManagement/ConfigurationManagerPlugins/**/*
+
+#config files
+ConfigurationManagement/FileConfig.json
+
+ConfigurationManagement/MyConfigs.config

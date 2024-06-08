@@ -9,16 +9,16 @@ namespace ConfigurationManagement.Providers
         private const string ConfigFilePath = "FileConfig.json";
         private bool _oldFileDeletedFlag;
 
-        public void SetSetting(string key, string value, bool overWriteOldFile = true) 
+        public void SetSetting(string key, string value, bool overWriteOldFile = true)
         {
             if (overWriteOldFile)
                 DeleteOldConfigFile();
 
-            var setting = File.Exists(ConfigFilePath) 
-                ? JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ConfigFilePath)) 
+            var setting = File.Exists(ConfigFilePath)
+                ? JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ConfigFilePath))
                 : [];
 
-            if(!setting.TryAdd(key, value)) 
+            if (!setting.TryAdd(key, value))
             {
                 setting[key] = value;
             }
@@ -28,11 +28,11 @@ namespace ConfigurationManagement.Providers
             fileWriter.WriteLine(JsonConvert.SerializeObject(setting));
         }
 
-        public string GetSetting(string key) 
+        public string GetSetting(string key)
         {
             if (!File.Exists(ConfigFilePath))
                 return null;
-            
+
             var settings = JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(ConfigFilePath));
             return settings.TryGetValue(key, out var value) ? value : null;
         }

@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationProviderPluginsBase\ConfigurationProviderPluginsBase.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  
+  <Target Name="Copy outputs to the Configuration Management project's ConfigurationManagerPlugins/FileConfigurationProvider folder" AfterTargets="Build">
+    <ItemGroup>
+      <OutputFiles Include="$(TargetDir)*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(SolutionDir)ConfigurationManagement\ConfigurationManagerPlugins\FileConfigurationProvider" />
+  </Target>
+
+</Project>

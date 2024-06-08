@@ -1,12 +1,14 @@
-﻿using ConfigurationManagement.Providers;
-using System;
+﻿using System;
 
 namespace ConfigurationManagement.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class ConfigurationItemAttribute<T>(string settingName) : Attribute where T : IConfigurationProvider
+    public class ConfigurationItemAttribute(string settingName, string providerType) : Attribute
     {
         public string SettingName { get; set; } = settingName;
-        public Type ProviderType { get; set; } = typeof(T);
+
+        public string ProviderType { get; set; } = !string.IsNullOrEmpty(providerType)
+                                                        ? providerType.ToLower().Trim()
+                                                        : string.Empty;
     }
 }

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationProviderPluginsBase\ConfigurationProviderPluginsBase.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0"/>
+  </ItemGroup>
+
+  <Target Name="Copy outputs to the Configuration Management project's ConfigurationManagerPlugins/ConfigurationManagerConfigurationProvider folder" AfterTargets="Build">
+    <ItemGroup>
+      <OutputFiles Include="$(TargetDir)*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(SolutionDir)ConfigurationManagement\ConfigurationManagerPlugins\ConfigurationManagerConfigurationProvider" />
+  </Target>
+
+</Project>

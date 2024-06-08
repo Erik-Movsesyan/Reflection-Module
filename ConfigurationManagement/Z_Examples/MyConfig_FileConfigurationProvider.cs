@@ -1,25 +1,24 @@
 ﻿using ConfigurationManagement.Attributes;
 using ConfigurationManagement.ConfigurationEntities;
-using ConfigurationManagement.Providers;
 using System;
 
 namespace ConfigurationManagement.Z_Examples
 {
     public class MyConfig_FileConfigurationProvider : ConfigurationComponentBase
     {
-        [ConfigurationItem<FileConfigurationProvider>("Setting1")]
+        [ConfigurationItem("Setting1", "FileConfigurationProvider")]
         public TimeSpan Setting1 { get; set; }
 
-        [ConfigurationItem<FileConfigurationProvider>("Setting2")]
+        [ConfigurationItem("Setting2", "FileConfigurationProvider")]
         public int? Setting2 { get; set; }
 
-        [ConfigurationItem<FileConfigurationProvider>("Setting3")]
+        [ConfigurationItem("Setting3", "FileConfigurationProvider")]
         public int? Setting3 { get; set; }
 
-        [ConfigurationItem<FileConfigurationProvider>("Setting4")]
+        [ConfigurationItem("Setting4", "FileConfigurationProvider")]
         public int? Setting4 { get; set; }
 
-        [ConfigurationItem<FileConfigurationProvider>(null)]
+        [ConfigurationItem(null, "FileConfigurationProvider")]
         public int? Setting5 { get; set; }
     }
 }
